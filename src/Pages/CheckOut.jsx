@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Components/Button";
 import { useShop } from "../Context/ShopContext";
 import { useToast } from "../Context/ToastContext";
+import { useOrders } from "../Context/OrderContext";
 
 function CheckOut() {
-  const { cart, cartTotal, clearCart } = useShop();
+  const { cart, cartTotal, discountAmount, finalTotal, clearCart } = useShop();
   const { showToast } = useToast();
+  const { placeOrder } = useOrders();
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -19,8 +21,8 @@ function CheckOut() {
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const [placingOrder, setPlacingOrder] = useState(false);
 
-  const deliveryFee = cartTotal > 999 || cartTotal === 0 ? 0 : 79;
-  const grandTotal = cartTotal + deliveryFee;
+  const deliveryFee = finalTotal > 999 || finalTotal === 0 ? 0 : 79;
+  const grandTotal = finalTotal + deliveryFee;
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -32,10 +34,19 @@ function CheckOut() {
 
     // Simulate order placement — replace with real API call later
     setTimeout(() => {
+      placeOrder({
+        items: cart,
+        subtotal: cartTotal,
+        discount: discountAmount,
+        deliveryFee,
+        total: grandTotal,
+        address: form,
+        paymentMethod,
+      });
       clearCart();
       setPlacingOrder(false);
       showToast("Order placed successfully! 🎁");
-      navigate("/");
+      navigate("/orders");
     }, 1200);
   };
 
@@ -139,6 +150,14 @@ function CheckOut() {
             <span>Subtotal</span>
             <span>₹{cartTotal}</span>
           </div>
+
+          {discountAmount > 0 && (
+            <div className="flex justify-between text-sm text-green-600 mb-2">
+              <span>Coupon Discount</span>
+              <span>−₹{discountAmount}</span>
+            </div>
+          )}
+
           <div className="flex justify-between text-sm text-gray-600 mb-2">
             <span>Delivery Fee</span>
             <span>{deliveryFee === 0 ? "FREE" : `₹${deliveryFee}`}</span>

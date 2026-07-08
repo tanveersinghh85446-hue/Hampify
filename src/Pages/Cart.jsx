@@ -1,13 +1,47 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../Components/CartItem";
 import Button from "../Components/Button";
 import { useShop } from "../Context/ShopContext";
+import { useToast } from "../Context/ToastContext";
 
 function Cart() {
-  const { cart, cartTotal } = useShop();
+  const {
+    cart,
+    cartTotal,
+    appliedCoupon,
+    applyCoupon,
+    removeCoupon,
+    discountAmount,
+    finalTotal,
+  } = useShop();
+  const { showToast } = useToast();
 
-  const deliveryFee = cartTotal > 999 || cartTotal === 0 ? 0 : 79;
-  const grandTotal = cartTotal + deliveryFee;
+  const [couponInput, setCouponInput] = useState("");
+  const [couponError, setCouponError] = useState("");
+
+  const deliveryFee = finalTotal > 999 || finalTotal === 0 ? 0 : 79;
+  const grandTotal = finalTotal + deliveryFee;
+
+  const handleApplyCoupon = (e) => {
+    e.preventDefault();
+    if (!couponInput.trim()) return;
+
+    const result = applyCoupon(couponInput);
+    if (result.success) {
+      setCouponError("");
+      showToast(result.message);
+      setCouponInput("");
+    } else {
+      setCouponError(result.message);
+    }
+  };
+
+  const handleRemoveCoupon = () => {
+    removeCoupon();
+    setCouponError("");
+    showToast("Coupon removed");
+  };
 
   if (cart.length === 0) {
     return (
@@ -43,10 +77,64 @@ function Cart() {
         <div className="bg-white rounded-2xl border border-gray-100 p-5 h-fit">
           <h2 className="font-bold text-[#14140F] mb-4">Order Summary</h2>
 
+          {/* Coupon section */}
+          {appliedCoupon ? (
+            <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg px-3 py-2.5 mb-4">
+              <div>
+                <p className="text-sm font-semibold text-green-700">
+                  {appliedCoupon.code} applied
+                </p>
+                <p className="text-xs text-green-600">
+                  {appliedCoupon.description}
+                </p>
+              </div>
+              <button
+                onClick={handleRemoveCoupon}
+                className="text-xs font-semibold text-red-500 hover:underline"
+              >
+                Remove
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleApplyCoupon} className="mb-4">
+              <div className="flex gap-2">
+                <input
+                  value={couponInput}
+                  onChange={(e) => {
+                    setCouponInput(e.target.value);
+                    setCouponError("");
+                  }}
+                  placeholder="Enter coupon code"
+                  className="grow border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none focus:border-[#0C3B2E] uppercase"
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 rounded-lg bg-[#0C3B2E] text-white text-sm font-semibold shrink-0"
+                >
+                  Apply
+                </button>
+              </div>
+              {couponError && (
+                <p className="text-xs text-red-500 mt-1.5">{couponError}</p>
+              )}
+              <p className="text-xs text-gray-400 mt-1.5">
+                Try FEST10, WELCOME50, or GIFT20
+              </p>
+            </form>
+          )}
+
           <div className="flex justify-between text-sm text-gray-600 mb-2">
             <span>Subtotal</span>
             <span>₹{cartTotal}</span>
           </div>
+
+          {discountAmount > 0 && (
+            <div className="flex justify-between text-sm text-green-600 mb-2">
+              <span>Coupon Discount</span>
+              <span>−₹{discountAmount}</span>
+            </div>
+          )}
+
           <div className="flex justify-between text-sm text-gray-600 mb-2">
             <span>Delivery Fee</span>
             <span>{deliveryFee === 0 ? "FREE" : `₹${deliveryFee}`}</span>

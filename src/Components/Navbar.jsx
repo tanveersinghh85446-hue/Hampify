@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import { useShop } from "../Context/ShopContext";
-import { useAuth } from "../Context/AuthContext";
+import { useShop } from "../context/ShopContext";
+import { useAuth } from "../context/AuthContext";
 
 const CITIES = ["Delhi", "Mumbai", "Bangalore", "Hyderabad", "Pune", "Chennai"];
 
@@ -143,6 +143,13 @@ function Navbar() {
 
               {showUserMenu && (
                 <div className="absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg py-2 w-40 z-50">
+                  <Link
+                    to="/orders"
+                    onClick={() => setShowUserMenu(false)}
+                    className="block px-4 py-2 text-sm text-[#14140F] hover:bg-gray-50"
+                  >
+                    My Orders
+                  </Link>
                   <button
                     onClick={handleLogout}
                     className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-gray-50"
