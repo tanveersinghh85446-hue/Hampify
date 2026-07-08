@@ -18,7 +18,8 @@ function CartItem({ item }) {
           {item.name}
         </h3>
         <p className="text-sm font-bold text-[#0C3B2E] mt-1">
-          ₹{item.price} <span className="text-gray-400 font-normal">x {item.qty}</span>
+          ₹{item.price}{" "}
+          <span className="text-gray-400 font-normal">x {item.qty}</span>
         </p>
       </div>
 

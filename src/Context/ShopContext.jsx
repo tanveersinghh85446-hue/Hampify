@@ -15,10 +15,10 @@ function loadFromStorage(key, fallback) {
 export function ShopProvider({ children }) {
   const [cart, setCart] = useState(() => loadFromStorage("hampify_cart", []));
   const [wishlist, setWishlist] = useState(() =>
-    loadFromStorage("hampify_wishlist", [])
+    loadFromStorage("hampify_wishlist", []),
   );
   const [appliedCoupon, setAppliedCoupon] = useState(() =>
-    loadFromStorage("hampify_coupon", null)
+    loadFromStorage("hampify_coupon", null),
   );
 
   // Persist to localStorage whenever these change
@@ -39,7 +39,7 @@ export function ShopProvider({ children }) {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
         return prev.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + qty } : item
+          item.id === product.id ? { ...item, qty: item.qty + qty } : item,
         );
       }
       return [...prev, { ...product, qty }];
@@ -56,7 +56,7 @@ export function ShopProvider({ children }) {
       return;
     }
     setCart((prev) =>
-      prev.map((item) => (item.id === productId ? { ...item, qty } : item))
+      prev.map((item) => (item.id === productId ? { ...item, qty } : item)),
     );
   };
 
@@ -78,10 +78,7 @@ export function ShopProvider({ children }) {
   const isInWishlist = (productId) =>
     wishlist.some((item) => item.id === productId);
 
-  const cartTotal = cart.reduce(
-    (sum, item) => sum + item.price * item.qty,
-    0
-  );
+  const cartTotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
 

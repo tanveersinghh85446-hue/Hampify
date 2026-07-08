@@ -11,9 +11,9 @@ function About() {
         corporate milestones.
       </p>
       <p className="text-gray-600 leading-relaxed mb-4">
-        Every hamper is thoughtfully assembled with quality products,
-        beautiful packaging, and a personal touch — so your gift doesn't just
-        arrive, it makes an impression.
+        Every hamper is thoughtfully assembled with quality products, beautiful
+        packaging, and a personal touch — so your gift doesn't just arrive, it
+        makes an impression.
       </p>
 
       <div className="grid sm:grid-cols-3 gap-6 mt-10">

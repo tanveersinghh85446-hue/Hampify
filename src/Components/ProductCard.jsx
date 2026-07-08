@@ -8,7 +8,7 @@ function ProductCard({ product }) {
 
   const cartItem = cart.find((item) => item.id === product.id);
   const discount = Math.round(
-    ((product.mrp - product.price) / product.mrp) * 100
+    ((product.mrp - product.price) / product.mrp) * 100,
   );
 
   const handleAddToCart = () => {
@@ -19,7 +19,7 @@ function ProductCard({ product }) {
   const handleToggleWishlist = () => {
     toggleWishlist(product);
     showToast(
-      isInWishlist(product.id) ? "Removed from wishlist" : "Added to wishlist"
+      isInWishlist(product.id) ? "Removed from wishlist" : "Added to wishlist",
     );
   };
 

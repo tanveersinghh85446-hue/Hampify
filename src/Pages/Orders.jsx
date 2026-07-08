@@ -76,9 +76,7 @@ function Orders() {
               <span className="text-sm text-gray-500">
                 Delivering to {order.address?.city || "—"}
               </span>
-              <span className="font-bold text-[#14140F]">
-                ₹{order.total}
-              </span>
+              <span className="font-bold text-[#14140F]">₹{order.total}</span>
             </div>
           </div>
         ))}

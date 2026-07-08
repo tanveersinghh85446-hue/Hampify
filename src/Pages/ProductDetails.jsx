@@ -29,7 +29,7 @@ function ProductDetails() {
     .slice(0, 4);
 
   const discount = Math.round(
-    ((product.mrp - product.price) / product.mrp) * 100
+    ((product.mrp - product.price) / product.mrp) * 100,
   );
 
   return (
@@ -122,7 +122,7 @@ function ProductDetails() {
                 showToast(
                   isInWishlist(product.id)
                     ? "Removed from wishlist"
-                    : "Added to wishlist"
+                    : "Added to wishlist",
                 );
               }}
             >

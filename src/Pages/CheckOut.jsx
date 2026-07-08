@@ -66,10 +66,7 @@ function CheckOut() {
         Checkout
       </h1>
 
-      <form
-        onSubmit={handlePlaceOrder}
-        className="grid md:grid-cols-3 gap-6"
-      >
+      <form onSubmit={handlePlaceOrder} className="grid md:grid-cols-3 gap-6">
         {/* Delivery details */}
         <div className="md:col-span-2 bg-white rounded-2xl border border-gray-100 p-5">
           <h2 className="font-bold text-[#14140F] mb-4">Delivery Details</h2>
@@ -117,9 +114,7 @@ function CheckOut() {
             />
           </div>
 
-          <h2 className="font-bold text-[#14140F] mt-6 mb-3">
-            Payment Method
-          </h2>
+          <h2 className="font-bold text-[#14140F] mt-6 mb-3">Payment Method</h2>
           <div className="flex flex-col gap-2">
             <label className="flex items-center gap-2 text-sm border border-gray-200 rounded-lg px-3 py-2.5 cursor-pointer">
               <input

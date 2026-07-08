@@ -31,9 +31,7 @@ function Login() {
   return (
     <div className="max-w-md mx-auto px-4 py-12">
       <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-        <h1 className="text-xl font-bold text-[#14140F] mb-1">
-          Welcome back
-        </h1>
+        <h1 className="text-xl font-bold text-[#14140F] mb-1">Welcome back</h1>
         <p className="text-sm text-gray-500 mb-6">
           Login to continue gifting happiness.
         </p>

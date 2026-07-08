@@ -44,8 +44,7 @@ function Register() {
           Create your account
         </h1>
         <p className="text-sm text-gray-500 mb-6">
-          Join Hampify and start gifting hampers your loved ones will
-          remember.
+          Join Hampify and start gifting hampers your loved ones will remember.
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
