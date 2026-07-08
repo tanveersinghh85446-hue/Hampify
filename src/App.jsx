@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ShopProvider } from "./Context/ShopContext";
+import { ShopProvider } from "./context/ShopContext";
 import { AuthProvider } from "./Context/AuthContext";
 import { ToastProvider } from "./Context/ToastContext";
 import Navbar from "./Components/Navbar";
