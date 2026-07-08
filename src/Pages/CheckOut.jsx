@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Components/Button";
 import { useShop } from "../context/ShopContext";
-import { useToast } from "../context/ToastContext";
+import { useToast } from "../Context/ToastContext";
 
 function CheckOut() {
   const { cart, cartTotal, clearCart } = useShop();

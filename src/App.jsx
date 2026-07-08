@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ShopProvider } from "./context/ShopContext";
-import { AuthProvider } from "./context/AuthContext";
-import { ToastProvider } from "./context/ToastContext";
+import { ShopProvider } from "./Context/ShopContext";
+import { AuthProvider } from "./Context/AuthContext";
+import { ToastProvider } from "./Context/ToastContext";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 

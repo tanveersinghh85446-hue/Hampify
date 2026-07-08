@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useShop } from "../context/ShopContext";
-import { useToast } from "../context/ToastContext";
+import { useToast } from "../Context/ToastContext";
 
 function ProductCard({ product }) {
   const { addToCart, toggleWishlist, isInWishlist, cart } = useShop();

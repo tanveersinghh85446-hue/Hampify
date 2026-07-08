@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../Components/Button";
-import { useAuth } from "../context/AuthContext";
-import { useToast } from "../context/ToastContext";
+import { useAuth } from "../Context/AuthContext";
+import { useToast } from "../Context/ToastContext";
 
 function Login() {
   const navigate = useNavigate();
