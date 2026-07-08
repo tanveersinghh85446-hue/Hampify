@@ -1,4 +1,4 @@
-import { useShop } from "../context/ShopContext";
+import { useShop } from "../Context/ShopContext";
 
 function CartItem({ item }) {
   const { updateCartQty, removeFromCart } = useShop();
