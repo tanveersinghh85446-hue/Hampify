@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
 import Button from "../Components/Button";
-import { useShop } from "../context/ShopContext";
+import { useShop } from "../Context/ShopContext";
 
 function WishList() {
   const { wishlist } = useShop();

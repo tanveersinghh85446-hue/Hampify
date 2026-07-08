@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import CartItem from "../Components/CartItem";
 import Button from "../Components/Button";
-import { useShop } from "../context/ShopContext";
+import { useShop } from "../Context/ShopContext";
 
 function Cart() {
   const { cart, cartTotal } = useShop();

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useShop } from "../context/ShopContext";
+import { useShop } from "../Context/ShopContext";
 import { useToast } from "../Context/ToastContext";
 
 function ProductCard({ product }) {

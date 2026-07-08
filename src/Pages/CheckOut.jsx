@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Components/Button";
-import { useShop } from "../context/ShopContext";
+import { useShop } from "../Context/ShopContext";
 import { useToast } from "../Context/ToastContext";
 
 function CheckOut() {

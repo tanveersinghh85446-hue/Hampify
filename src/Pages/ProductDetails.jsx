@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import Button from "../Components/Button";
 import ProductCard from "../Components/ProductCard";
 import { getProductById, getProductsByCategory } from "../data/products";
-import { useShop } from "../context/ShopContext";
+import { useShop } from "../Context/ShopContext";
 import { useToast } from "../Context/ToastContext";
 
 function ProductDetails() {

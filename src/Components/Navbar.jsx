@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import { useShop } from "../context/ShopContext";
+import { useShop } from "../Context/ShopContext";
 import { useAuth } from "../Context/AuthContext";
 
 const CITIES = ["Delhi", "Mumbai", "Bangalore", "Hyderabad", "Pune", "Chennai"];
