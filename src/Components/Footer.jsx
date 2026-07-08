@@ -6,7 +6,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center sm:text-left">
         <div>
           <span className="text-xl font-extrabold">
-            hamp<span className="text-[#C6F135]">ify</span>
+            Hamp<span className="text-[#C6F135]">ify</span>
           </span>
           <p className="text-sm text-gray-300 mt-3 max-w-xs mx-auto sm:mx-0">
             Curated gift hampers for every festival and celebration, delivered

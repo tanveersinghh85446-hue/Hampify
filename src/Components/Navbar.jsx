@@ -50,7 +50,7 @@ function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-1 shrink-0">
           <span className="text-2xl font-extrabold text-[#0C3B2E]">
-            hamp<span className="text-[#8FCB2E]">ify</span>
+            Hamp<span className="text-[#8FCB2E]">ify</span>
           </span>
         </Link>
 
